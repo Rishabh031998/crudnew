@@ -1,0 +1,62 @@
+﻿@using NonFactors.Mvc.Grid
+@{
+    ViewData["Title"] = "Students";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<link href="~/css/bootstrap.css" rel="stylesheet" id="bootstrap-css">
+
+<section class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-6">
+                <h1>@ViewData["Title"]</h1>
+            </div>
+         
+                <div class="col-6">
+                    <a class="btn btn-primary btn-inline-block float-right" href="/AccountController1/Logout">
+                      Logout
+                    </a>
+                </div>
+            
+        </div>
+    </div>
+</section>
+
+<section class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-body">
+@*                        @if (ViewBag.CanView)
+                        {*@
+                            <div class="row mb-2">
+                                <div class="col-md-12">
+                                  
+                                </div>
+                            </div>
+                            <div style="width:100%;">
+                                @Html.AjaxGrid(Url.Action("IndexGrid"))
+                            </div>
+
+                      @*  }*@
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</section>
+
+<div id='DocumentTypeModal' class='modal fade in'>
+    <div id='DocumentTypeContainer'>
+    </div>
+</div>
+
+@section Scripts {
+    <script type="text/javascript">
+      document.querySelectorAll(".mvc-grid").forEach(element => new MvcGrid(element));
+
+     
+    </script>
+}

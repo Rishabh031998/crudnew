@@ -1,0 +1,34 @@
+﻿@model IQueryable<Student>
+@using NonFactors.Mvc.Grid
+@using System
+
+@* Should only include grid declaration *@
+
+@(Html.Grid(Model)
+    .Build(columns =>
+    {
+        if (ViewBag.CanEdit == true || ViewBag.CanDelete == true)
+        {
+            columns.Add(model => model.StudentId).Titled("Action").AppendCss("col-lg-1").Encoded(false).Filterable(false).Sortable(false);
+        }
+        columns.Add(model => model.StudentName).Titled("Menu Name").AppendCss("col-lg-15").Filterable(GridFilterCase.Lower); /*(model => getMenuId(Convert.ToInt32(model.MenuId)));*/
+        //columns.Add(model => model.EntityWiseDocumentTypeId).Titled("Document Type Details").AppendCss("col-lg-7").Filterable(GridFilterCase.Lower);
+        columns.Add(model => model.Subjects).Titled("Subjects").AppendCss("col-lg-7").Filterable(GridFilterCase.Lower);
+        columns.Add(model => model.CountryId).Titled("Country Name").AppendCss("col-lg-7").Filterable(GridFilterCase.Lower);
+        columns.Add(model => model.StateId).Titled("State Name").AppendCss("col-lg-7").Filterable(GridFilterCase.Lower);
+
+
+    })
+    .Empty("No data found")
+    .Id("my-ajax-grid-DocumentType")
+    .Pageable(pager =>
+    {
+        pager.PagesToDisplay = 3;
+        pager.RowsPerPage = 10;
+    })
+    .Filterable()
+    .Sortable()
+)
+
+
+

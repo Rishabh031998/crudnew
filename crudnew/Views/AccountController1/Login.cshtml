@@ -1,0 +1,32 @@
+﻿
+
+@{
+    ViewData["Title"] = "Login";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="card" style="width: 18rem;">
+  <div class="card-header">
+      Login form
+  </div>
+  <div class="card-body">
+    <div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <form method="post" asp-action="Login" asp-controller="AccountController1">
+    <input type="text" name="username" placeholder="Username">
+    <br />
+    <br />
+    <br />
+    <input type="password" name="password" placeholder="Password">
+    <br />
+    <br />
+    <button>Sign in</button>
+</form>
+        </div>
+
+    </div>
+
+</div>
+  </div>
+</div>
+
